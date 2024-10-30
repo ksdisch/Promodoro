@@ -6,7 +6,7 @@
     # Method Implementations: Include all method implementations as provided in the previous code.
 
 # Explanation:
-    # Defines the PomodoroTimer class, inheriting from QWidget.
+    # Defines the NewPomo class, inheriting from QWidget.
     # Implements functionalities for starting, pausing, resetting the timer, adding categories, setting durations, and interacting with the database for persistent storage.
     # Includes methods for loading and saving categories, and handling calendar interactions.
 
@@ -22,7 +22,7 @@ from PyQt5.QtCore import QTimer, Qt, QDateTime, pyqtSignal
 from models import Session, ScheduledSession
 from datetime import datetime
 
-class PomodoroTimer(QWidget):
+class NewPomo(QWidget):
     # Signal to indicate that a session has been completed
     session_completed = pyqtSignal()
 

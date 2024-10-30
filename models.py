@@ -19,13 +19,12 @@
 # Copy code
 # CREATE USER app_user WITH PASSWORD 'your_password';
 # GRANT ALL PRIVILEGES ON DATABASE productivity_app TO app_user;
-
 # models.py
 
-# Update this connection string with your PostgreSQL credentials
-DATABASE_URI = 'postgresql+psycopg2://postgres:Bashor47@localhost/productivity_app'
-
-from sqlalchemy import create_engine, Column, Integer, String, Text, Date, DateTime
+from sqlalchemy import (
+    create_engine, Column, Integer, String, Text,
+    Date, DateTime
+)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -51,6 +50,27 @@ class ScheduledSession(Base):
 
     def __repr__(self):
         return f"<ScheduledSession(id={self.id}, date={self.date}, category='{self.category}', status='{self.status}')>"
+
+class Settings(Base):
+    __tablename__ = 'settings'
+
+    id = Column(Integer, primary_key=True)
+    session_duration = Column(Integer, default=25)
+    sessions_per_cycle = Column(Integer, default=4)
+    short_break_duration = Column(Integer, default=5)
+    long_break_duration = Column(Integer, default=30)
+
+    def __repr__(self):
+        return f"<Settings(id={self.id}, session_duration={self.session_duration}, sessions_per_cycle={self.sessions_per_cycle})>"
+
+class Category(Base):
+    __tablename__ = 'categories'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f"<Category(id={self.id}, name='{self.name}')>"
 
 # Create all tables in the database (if they don't exist)
 Base.metadata.create_all(engine)

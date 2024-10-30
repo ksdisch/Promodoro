@@ -264,7 +264,7 @@ productivity_app/
 - **`main.py`**: Entry point of the application.
 - **`main_window.py`**: Integrates all components into the main window.
 - **`stopwatch.py`**: Contains the `Stopwatch` class.
-- **`pomodoro_timer.py`**: Contains the `PomodoroTimer` class with calendar scheduling.
+- **`pomodoro_timer.py`**: Contains the `NewPomo` class with calendar scheduling.
 - **`session_history.py`**: Contains the `SessionHistory` class.
 - **`models.py`**: Defines the database models and initializes the database.
 - **`alembic/`**: Directory for database migrations.
